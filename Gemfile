@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 
 ruby '2.0.0'
 
+#gem 'cumulogic_client', :git => 'https://github.com/cumulogic/cumulogic_client.git'
+
 # Sinatra microframework
 gem 'rack'
 gem 'rake'
