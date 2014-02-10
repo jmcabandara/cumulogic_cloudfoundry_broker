@@ -32,7 +32,7 @@ module General
 
       return true
     end
-    halt 412, "Precondition Failed"
+    halt 412, "{ 'description': 'Unknown API version provided in X-Broker-Api-Version header: #{versionstring}' }"
     return false
   end
 

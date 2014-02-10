@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/cumulogic/cumulogic_client.git
+  revision: 1f8b55645e04cc087e4b92934bda31415cc4d833
+  specs:
+    cumulogic_client (0.0.3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -85,6 +91,7 @@ PLATFORMS
 
 DEPENDENCIES
   coveralls
+  cumulogic_client!
   guard-minitest
   mocha (~> 0.14.0)
   multi_json

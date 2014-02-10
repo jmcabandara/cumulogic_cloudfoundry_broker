@@ -9,10 +9,20 @@ class CumulogicCloudfoundryBroker::Base < ::Sinatra::Base
       ms.name = 'mongodb'
       ms.description = 'good mongo db'
       ms.bindable = true
-      #ms.plans = Array.new
+      ms.plans = Array.new
+      p1 = Plan.new
+      p2 = Plan.new
+      p1.id = '345'
+      p1.name = 'plan1'
+      p1.description = 'foo'
+      p2.id = '567'
+      p2.name = 'plan2'
+      p2.description = 'bar'
+      ms.plans.push p1
+      ms.plans.push p2
       catalog.services.push ms
       puts catalog.services[0].name
-      catalog.to_json
+      JSON.pretty_generate(catalog.to_hash)
     end
 
   end
