@@ -55,7 +55,9 @@ class CumulogicCloudfoundryBroker::Base < ::Sinatra::Base
 
     delete '/service_instances/:id' do
 
-      #TODO: De-provision the service instance
+      cl = get_client()
+      noSqlInstanceId = Serviceinstance.get(params[:instance_id]).instance_id
+      cl.terminate(noSqlInstanceId)
       
       begin
         si = Serviceinstance.get(params[:id])
