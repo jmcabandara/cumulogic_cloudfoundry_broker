@@ -10,6 +10,9 @@ gem 'rake'
 gem 'sinatra', require: "sinatra/base"
 gem 'sinatra-contrib'
 gem 'multi_json'
+gem 'sqlite3'
+gem 'dm-sqlite-adapter'
+gem 'data_mapper'
 
 # Serve with unicorn
 gem 'unicorn'

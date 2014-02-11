@@ -1,13 +1,15 @@
 GIT
   remote: https://github.com/cumulogic/cumulogic_client.git
-  revision: 3ea231d0105ec5bda595862797802666f338d98f
+  revision: 654b035e77fd1df9da1a2549ce171132f6147325
   specs:
-    cumulogic_client (0.0.3)
+    cumulogic_client (0.0.4)
 
 GEM
   remote: http://rubygems.org/
   specs:
+    addressable (2.3.5)
     backports (3.5.0)
+    bcrypt-ruby (3.1.2)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     coderay (1.1.0)
@@ -17,7 +19,56 @@ GEM
       simplecov (>= 0.7)
       term-ansicolor
       thor
+    data_mapper (1.2.0)
+      dm-aggregates (~> 1.2.0)
+      dm-constraints (~> 1.2.0)
+      dm-core (~> 1.2.0)
+      dm-migrations (~> 1.2.0)
+      dm-serializer (~> 1.2.0)
+      dm-timestamps (~> 1.2.0)
+      dm-transactions (~> 1.2.0)
+      dm-types (~> 1.2.0)
+      dm-validations (~> 1.2.0)
+    data_objects (0.10.13)
+      addressable (~> 2.1)
+    dm-aggregates (1.2.0)
+      dm-core (~> 1.2.0)
+    dm-constraints (1.2.0)
+      dm-core (~> 1.2.0)
+    dm-core (1.2.1)
+      addressable (~> 2.3)
+    dm-do-adapter (1.2.0)
+      data_objects (~> 0.10.6)
+      dm-core (~> 1.2.0)
+    dm-migrations (1.2.0)
+      dm-core (~> 1.2.0)
+    dm-serializer (1.2.2)
+      dm-core (~> 1.2.0)
+      fastercsv (~> 1.5)
+      json (~> 1.6)
+      json_pure (~> 1.6)
+      multi_json (~> 1.0)
+    dm-sqlite-adapter (1.2.0)
+      dm-do-adapter (~> 1.2.0)
+      do_sqlite3 (~> 0.10.6)
+    dm-timestamps (1.2.0)
+      dm-core (~> 1.2.0)
+    dm-transactions (1.2.0)
+      dm-core (~> 1.2.0)
+    dm-types (1.2.2)
+      bcrypt-ruby (~> 3.0)
+      dm-core (~> 1.2.0)
+      fastercsv (~> 1.5)
+      json (~> 1.6)
+      multi_json (~> 1.0)
+      stringex (~> 1.4)
+      uuidtools (~> 2.1)
+    dm-validations (1.2.0)
+      dm-core (~> 1.2.0)
+    do_sqlite3 (0.10.13)
+      data_objects (= 0.10.13)
     docile (1.1.3)
+    fastercsv (1.5.5)
     ffi (1.9.3)
     formatador (0.2.4)
     guard (2.4.0)
@@ -29,6 +80,8 @@ GEM
     guard-minitest (2.2.0)
       guard (~> 2.0)
       minitest (>= 3.0)
+    json (1.8.1)
+    json_pure (1.8.1)
     kgio (2.9.1)
     listen (2.4.1)
       celluloid (>= 0.15.2)
@@ -75,6 +128,8 @@ GEM
       sinatra (~> 1.4.0)
       tilt (~> 1.3)
     slop (3.4.7)
+    sqlite3 (1.3.8)
+    stringex (1.5.1)
     term-ansicolor (1.3.0)
       tins (~> 1.0)
     thor (0.18.1)
@@ -85,6 +140,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    uuidtools (2.1.4)
 
 PLATFORMS
   ruby
@@ -92,6 +148,8 @@ PLATFORMS
 DEPENDENCIES
   coveralls
   cumulogic_client!
+  data_mapper
+  dm-sqlite-adapter
   guard-minitest
   mocha (~> 0.14.0)
   multi_json
@@ -101,4 +159,5 @@ DEPENDENCIES
   simplecov
   sinatra
   sinatra-contrib
+  sqlite3
   unicorn

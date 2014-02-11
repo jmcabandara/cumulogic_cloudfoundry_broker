@@ -4,12 +4,19 @@ ENV['RACK_ENV'] ||= 'development'
 require "bundler"
 Bundler.require :default, ENV['RACK_ENV'].to_sym
 
+require 'sqlite3'
+require 'data_mapper'
+
 # Define app and setup root helper
 module CumulogicCloudfoundryBroker
   class Base < ::Sinatra::Base
     set :root, lambda { |*args| File.join(File.dirname(__FILE__), *args) }
 
     configure do
+      DataMapper::Logger.new($stdout, :debug)
+      dbfile = File.expand_path('../data.db', __FILE__)
+      DataMapper.setup(:default, "sqlite://#{dbfile}")
+
       enable :logging
       enable :raise_errors, :logging
       enable :show_exceptions
@@ -44,6 +51,7 @@ module CumulogicCloudfoundryBroker
   end
 end
 
+require_relative 'model'
 require_relative 'helpers/init'
 require_relative 'routes/init'
 require_relative 'models/init'
