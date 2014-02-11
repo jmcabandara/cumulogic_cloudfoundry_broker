@@ -12,6 +12,7 @@ Requires a CL configuration file in ~/.cumulogic_client.yml that looks like:
 
     URL: http://sandbox.cumulogic.com/cumulogic/REST/
     USER: youruser
+    USERID: 11
     PASSWORD: yourpass
     SSL: false
     DEBUG: false

@@ -11,4 +11,10 @@ module Cl
     debugon = (cnf['DEBUG']) || false
     CumulogicClient::Nosql.new(url, user, password, ssl, debugon)
   end
+
+  def userid()
+    cnf = YAML::load(File.open(File.expand_path('~/.cumulogic_client.yml')))
+    cnf['USERID']
+  end
+
 end
