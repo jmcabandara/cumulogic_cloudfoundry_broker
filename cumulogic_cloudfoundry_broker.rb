@@ -51,7 +51,6 @@ module CumulogicCloudfoundryBroker
   end
 end
 
-require_relative 'model'
 require_relative 'helpers/init'
 require_relative 'routes/init'
 require_relative 'models/init'
