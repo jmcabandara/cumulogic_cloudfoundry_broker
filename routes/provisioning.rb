@@ -56,7 +56,7 @@ class CumulogicCloudfoundryBroker::Base < ::Sinatra::Base
     delete '/service_instances/:id' do
 
       cl = get_client()
-      noSqlInstanceId = Serviceinstance.get(params[:instance_id]).instance_id
+      noSqlInstanceId = Serviceinstance.get(params[:id]).instance_id
       cl.terminate(noSqlInstanceId)
       
       begin
