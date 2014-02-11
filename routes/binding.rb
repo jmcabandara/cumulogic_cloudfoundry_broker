@@ -7,8 +7,7 @@ class CumulogicCloudfoundryBroker::Base < ::Sinatra::Base
 
       cl = get_client()
 
-      #TODO: Lookup noSqlInstanceId from Serviceinstance model
-      noSqlInstanceId = 41
+      noSqlInstanceId = Serviceinstance.get(params[:instance_id]).instance_id
 
       #TODO: Query for DB name (collection name) from CL
       collectionName = "UnitTestCollection"
