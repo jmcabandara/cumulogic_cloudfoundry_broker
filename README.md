@@ -16,6 +16,7 @@ Requires a CL configuration file in ~/.cumulogic_client.yml that looks like:
     PASSWORD: yourpass
     SSL: false
     DEBUG: false
+    NOSQLSERVICEID: 6
 
 Then run:
 

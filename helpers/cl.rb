@@ -17,4 +17,8 @@ module Cl
     cnf['USERID']
   end
 
+  def nosqlserviceid()
+    cnf = YAML::load(File.open(File.expand_path('~/.cumulogic_client.yml')))
+    cnf['NOSQLSERVICEID']
+  end
 end
