@@ -2,6 +2,7 @@ class CumulogicCloudfoundryBroker::Base < ::Sinatra::Base
   namespace '/cumulogic_cloudfoundry_bridge/v2' do
 
     get '/catalog' do
+      #TODO: The catalog should be pulled from the CL controller
       catalog = Catalog.new
       catalog.services = Array.new
       ms = Service.new
