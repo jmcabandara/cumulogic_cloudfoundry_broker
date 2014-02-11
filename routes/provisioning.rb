@@ -54,6 +54,9 @@ class CumulogicCloudfoundryBroker::Base < ::Sinatra::Base
     end
 
     delete '/service_instances/:id' do
+
+      #TODO: De-provision the service instance
+      
       begin
         si = Serviceinstance.get(params[:id])
         si.destroy()
