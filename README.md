@@ -10,16 +10,16 @@ Assumes ruby 2.0.0
 
 Requires a CL configuration file in ~/.cumulogic_client.yml that looks like:
 
-  URL: http://sandbox.cumulogic.com/cumulogic/REST/
-  USER: youruser
-  PASSWORD: yourpass
-  SSL: false
-  DEBUG: false
+    URL: http://sandbox.cumulogic.com/cumulogic/REST/
+    USER: youruser
+    PASSWORD: yourpass
+    SSL: false
+    DEBUG: false
 
 Then run:
 
-  bundle install
-  rackup
+    bundle install
+    rackup
 
 Mapping data is stored in a Sqlite3 DB called data.db in the root dir of the project.
 
