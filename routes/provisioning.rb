@@ -37,7 +37,7 @@ class CumulogicCloudfoundryBroker::Base < ::Sinatra::Base
       spec.backupStartTime = ""
       spec.start = "1"
 
-      noSqlInstanceId = cl.create(spec)
+      noSqlInstanceId = cl.create(spec, false)
 
       #TODO: we have no method of dealing with the async nature of CL provisioning requests within CF
 

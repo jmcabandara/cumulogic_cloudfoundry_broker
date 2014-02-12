@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/cumulogic/cumulogic_client.git
-  revision: 41f2f9e88fa4e4bd7b857df4824fbb8a5dee92e4
+  revision: fad38f15f596894a36ec60829537a79fd466252e
   specs:
     cumulogic_client (0.0.5)
 
