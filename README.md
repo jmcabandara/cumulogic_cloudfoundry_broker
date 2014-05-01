@@ -2,14 +2,30 @@
 
 # CumuLogic / CloudFoundry Service Broker
 
-A Sinatra ruby application that provides a CloudFoundry Service Broker to integrate CloudFoundry with the CumuLogic Cloud Services platform.
+## Current Status
+
+This application is currently a technical preview. Contributions are welcome.
+
+## Overview
+
+A Sinatra Ruby application that provides a CloudFoundry Service Broker to integrate CloudFoundry with the CumuLogic Cloud Services platform.
+
+CumuLogic is a software platform that enables DBaaS services on any infrastructure within your own datacenter.  Supported database engines include MySQL, Percona, MongoDB and Couchbase. Deployed databases are automatically backed up by the controller, and users are able to execute numerous self service functions to manage and scale the systems. Database engines can be deployed in multiple configurations, from small single node development instances up to even complex sharded configurations (for MongoDB). More information about CumuLogic can be found at http://www.cumulogic.com/
+
+A screencast explaining the integration can be found here: https://www.youtube.com/watch?v=9x0fv4Vp2Xk&feature=youtu.be
+
+A screencast demo of the integration can be found here: https://www.youtube.com/watch?v=7D3jLFkhMxU
 
 This software is Copyright (c) 2014 CumuLogic, Inc, and is licensed via the Apache
 Software Licence v2.
 
-## Using
+See [LICENSE](LICENSE) and [NOTICE](NOTICE).
 
-Assumes ruby 2.0.0
+## Minimal Usage Instructions
+
+For more detailed installation and usage instructions, including the steps required to enable this service broker within CloudFoundry, please see the full [Installation and Usage](INSTALLATION.md) documentation.
+
+Assumes Ruby 2.0.0. For development environments, we suggest using rvm. You will find a .ruby-version file in the repo to help rvm know what to do.
 
 Requires a CL configuration file in ~/.cumulogic_client.yml that looks like:
 
