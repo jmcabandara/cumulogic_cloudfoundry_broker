@@ -21,6 +21,8 @@ Software Licence v2.
 
 See [LICENSE](LICENSE) and [NOTICE](NOTICE).
 
+Cloud Foundry and the Cloud Foundry logo are trademarks and/or registered trademarks of Pivotal Software, Inc. in the United States and/or other countries. 
+
 ## Minimal Usage Instructions
 
 For more detailed installation and usage instructions, including the steps required to enable this service broker within CloudFoundry, please see the full [Installation and Usage](INSTALLATION.md) documentation.
