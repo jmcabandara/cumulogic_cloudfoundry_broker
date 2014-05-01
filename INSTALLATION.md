@@ -2,20 +2,20 @@
 
 # Installation, Configuration and Usage
 
-This document outlines the installation process for the CumuLogic Service Broker interface for CloudFoundry, as well as the configuration and usage of the broker within CloudFoundry.
+This document outlines the installation process for the CumuLogic Service Broker interface for Cloud Foundry, as well as the configuration and usage of the broker within Cloud Foundry.
 
 ## Table of Contents
 
  * Setting up your CumuLogic environment
  * Setting up the Service Broker web service
- * Configuring CloudFoundry to use the new service broker
- * Using CumuLogic services as a developer in CloudFoundry
+ * Configuring Cloud Foundry to use the new service broker
+ * Using CumuLogic services as a developer in Cloud Foundry
 
 ## Setting up your CumuLogic environment
 
-The service broker relies on the CumuLogic platform administrator creating appropriate service catalog items (subscriptions) within the operator console.  You should configure any subscriptions you want to expose to CloudFoundry in as much detail as possible (as many preset settings as possible), since CloudFoundry does not provide a facility for per-service creation parameters.  If there are subscriptions created within CumuLogic that you do not want to expose to the CloudFoundry users, that will be filtered by virtue of the CloudFoundry service plan visibility attribute in a later step.
+The service broker relies on the CumuLogic platform administrator creating appropriate service catalog items (subscriptions) within the operator console.  You should configure any subscriptions you want to expose to Cloud Foundry in as much detail as possible (as many preset settings as possible), since Cloud Foundry does not provide a facility for per-service creation parameters.  If there are subscriptions created within CumuLogic that you do not want to expose to the Cloud Foundry users, that will be filtered by virtue of the Cloud Foundry service plan visibility attribute in a later step.
 
-The CloudFoundry service broker will be configured to act as a single user within the CumuLogic platform, so be sure to enable the appropriate target clouds within CumuLogic for whatever account you will be using. Also, if there are infrastructure restrictions placed on the account by the underlying IaaS layer, be sure to review them ahead of making CumuLogic services available to a wide user base within CloudFoundry.
+The Cloud Foundry service broker will be configured to act as a single user within the CumuLogic platform, so be sure to enable the appropriate target clouds within CumuLogic for whatever account you will be using. Also, if there are infrastructure restrictions placed on the account by the underlying IaaS layer, be sure to review them ahead of making CumuLogic services available to a wide user base within Cloud Foundry.
 
 ## Setting up the Service Broker web service
 
@@ -41,7 +41,7 @@ The contents of file should be as follows:
 
 With this configuration file in place, we are now ready to build and start the service broker.
 
-The service broker itself is a Sinatra-based ruby application, that is designed to create an API bridge between CloudFoundry and CumuLogic.  The application exposes the CloudFoundry Service Broker version 2 API, and translates those calls into the appropriate API functions needed to work with the CumuLogic controller.
+The service broker itself is a Sinatra-based ruby application, that is designed to create an API bridge between Cloud Foundry and CumuLogic.  The application exposes the Cloud Foundry Service Broker version 2 API, and translates those calls into the appropriate API functions needed to work with the CumuLogic controller.
 
 To build and start the broker, execute the following:
 
@@ -98,17 +98,17 @@ You should see a service catalog JSON output similar to the following:
 }
 ```
 
-## Configuring CloudFoundry to use the new service broker
+## Configuring Cloud Foundry to use the new service broker
 
-These instructions are based on the specific version of the cf command-line tool that was used to build our technical preview.  Please consult the CloudFoundry documentation on configuring and managing service brokers if there are any differences in your environment.  As long as the CloudFoundry implementation supports the Service Broker API Version 2.x series, the broker should work fine.  Command line options might differ between the ruby and go-based CF CLI tools.  The relevant CloudFoundry documentation is here: http://docs.cloudfoundry.com/docs/running/architecture/services/managing-service-brokers.html
+These instructions are based on the specific version of the cf command-line tool that was used to build our technical preview.  Please consult the Cloud Foundry documentation on configuring and managing service brokers if there are any differences in your environment.  As long as the Cloud Foundry implementation supports the Service Broker API Version 2.x series, the broker should work fine.  Command line options might differ between the ruby and go-based CF CLI tools.  The relevant Cloud Foundry documentation is here: http://docs.cloudfoundry.com/docs/running/architecture/services/managing-service-brokers.html
 
-Now let’s setup our new service broker within CloudFoundry.  First, configure your cf command line tool to point at the CloudFoundry deployment, and login as the “admin” user.  You can review how to do this in the CloudFoundry documentation.
+Now let’s setup our new service broker within Cloud Foundry.  First, configure your cf command line tool to point at the Cloud Foundry deployment, and login as the “admin” user.  You can review how to do this in the Cloud Foundry documentation.
 
 Our first step is to run the Add Service Broker command:
 
     ~> cf add-service-broker --name cumulogic --username admin --password admin --url http://brokerhostname:9292/cumulogic_cloudfoundry_bridge
 
-Next, CloudFoundry requires that we make the services exposed by our new service broker public, so that application developers can view and instantiate them.  Doing this is a bit tricky, so we recommend that you take the time to read through the CloudFoundry docs on how to make a plan public.
+Next, Cloud Foundry requires that we make the services exposed by our new service broker public, so that application developers can view and instantiate them.  Doing this is a bit tricky, so we recommend that you take the time to read through the Cloud Foundry docs on how to make a plan public.
 
 Let’s walk through the process.  First, execute a 'cf curl' call to get a list of the known service plans from the cloud controller:
 
@@ -140,20 +140,20 @@ Look for the guid attribute, stored within the metadata object. That guid is wha
 
     ~> cf curl PUT /v2/service_plans/________________ -b '{"public":true}’ ]
 
-Do this step for every CumuLogic subscription that you want to make public to all users within the CloudFoundry environment.
+Do this step for every CumuLogic subscription that you want to make public to all users within the Cloud Foundry environment.
 
-## Using CumuLogic services as a developer in CloudFoundry
+## Using CumuLogic services as a developer in Cloud Foundry
 
-At this point, CloudFoundry is now setup to use the CumuLogic service broker to provision, bind, unbind and deprovision CumuLogic backend services from within CloudFoundry.
+At this point, Cloud Foundry is now setup to use the CumuLogic service broker to provision, bind, unbind and deprovision CumuLogic backend services from within Cloud Foundry.
 
-The basics of service usage are the same for all CloudFoundry environments, and consist of the following important commands:
+The basics of service usage are the same for all Cloud Foundry environments, and consist of the following important commands:
 
     cf create-service
     cf bind-service
     cf unbind-service
     cf delete-service
 
-See CloudFoundry's documentation for how to use services, especially how to make use of the VCAP_SERVICES environment variable to get access to your backend database within your applications.
+See Cloud Foundry's documentation for how to use services, especially how to make use of the VCAP_SERVICES environment variable to get access to your backend database within your applications.
 
-One of the reasons that we are currently releasing this as a technical preview, is that we are waiting for some changes that the CloudFoundry community is making to allow for asynchronous provisioning of services.  For now, users need to wait for the service to complete provisioning (after a create-service command).
+One of the reasons that we are currently releasing this as a technical preview, is that we are waiting for some changes that the Cloud Foundry community is making to allow for asynchronous provisioning of services.  For now, users need to wait for the service to complete provisioning (after a create-service command).
 
