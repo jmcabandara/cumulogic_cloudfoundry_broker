@@ -1,6 +1,6 @@
 ![CumuLogic, Inc](http://www.cumulogic.com/wp-content/uploads/2013/02/CL-logo-300x134.png "CumuLogic, Inc")
 
-# CumuLogic / Cloud Foundry Service Broker
+# CumuLogic Database Service Broker for Cloud Foundry
 
 ## Current Status
 
@@ -8,7 +8,7 @@ This application is currently a technical preview. Contributions are welcome.
 
 ## Overview
 
-A Sinatra Ruby application that provides a Cloud Foundry Service Broker to integrate Cloud Foundry with the CumuLogic Cloud Services platform.
+A Sinatra Ruby application that provides a Cloud Foundry Service Broker to integrate Cloud Foundry with the CumuLogic DBaaS platform.
 
 CumuLogic is a software platform that enables Private DBaaS services on any infrastructure within your own datacenter.  Supported database engines include MySQL, Percona, MongoDB and Couchbase. Deployed databases are automatically backed up by the controller, and users are able to execute numerous self service functions to manage and scale the systems. Database engines can be deployed in multiple configurations, from small single node development instances up to even complex sharded configurations (for MongoDB). More information about CumuLogic can be found at http://www.cumulogic.com/
 

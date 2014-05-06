@@ -2,7 +2,7 @@
 
 # Installation, Configuration and Usage
 
-This document outlines the installation process for the CumuLogic Service Broker interface for Cloud Foundry, as well as the configuration and usage of the broker within Cloud Foundry.
+This document outlines the installation process for the CumuLogic Database Service Broker for Cloud Foundry, as well as the configuration and usage of the broker within Cloud Foundry.
 
 ## Table of Contents
 
